@@ -1,0 +1,34 @@
+@startuml
+class Hechicero{
+    - energiaMaxima: Integer
+    - nivel: Integer
+    - energiaActual: Integer
+
+    + energiaMaxima(): Integer
+    + puedeUsarHechizo(hechizo): Boolean
+}
+
+class Aprendiz extends Hechicero{
+  + energiaMaxima(): Integer
+  + puedeUsarHechizo(hechizo): Boolean
+}
+
+class Archimagos extends Hechicero{
+  + energiaMaxima(): Integer
+  + puedeUsarHechizo(hechizo): Boolean
+}
+
+class Supremos extends Hechicero{
+  + energiaMaxima(): Integer
+  + puedeUsarHechizo(hechizo): Boolean
+}
+
+class Hechizo{
+    -energia: Integer
+    -prohibido: Boolean
+    + energiaRequerida(): Integer
+    + esProhibido(): Boolean
+}
+
+Hechicero -> Hechizo
+@enduml
