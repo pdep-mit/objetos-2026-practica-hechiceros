@@ -1,3 +1,4 @@
+# Consigna
 ## Hechiceros
 
 Queremos armar un programa donde tenemos hechiceros con diferentes rangos (aprendiz de brujo, archimago, hechicero supremo) que usan hechizos.
@@ -23,3 +24,9 @@ Dado que estos hechiceros no están detenidos en el tiempo y van adquiriendo má
 
 - un aprendiz de brujo cambie a archimago de nivel 1.
 - un archimago cambie a archimago de algún otro nivel o a hechicero supremo.
+
+
+## Diagramas de clase
+
+### Caso de herencia
+### Caso de composición
