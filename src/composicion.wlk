@@ -5,6 +5,9 @@ class Hechicero{
     method energiaMaxima() = rango.energiaMaxima(self)
     method puedeUsarHechizo(hechizo){
         return self.energiaActual() >= hechizo.energiaRequerida()
+            && rango.cumpleRequerimiento(hechizo)
+            // en caso de que los requerimientos lo pidan y tengamos que acceder atributos del mago, usariamos self 
+            // y armaríamos métodos en la clase hechicero para no romper el encapsulamiento. Por ejemplo, si un hechizo requiere que el mago tenga un nivel mayor a 5, podríamos hacer algo como:
     }
     method subirRango(){
         rango.subirRango(self)
@@ -15,18 +18,16 @@ class Hechicero{
 }
 
 class Rango{
-    var energiaMaxima
+    const property energiaMaxima
     method energiaMaxima()
-    method puedeUsarHechizo(hechicero, hechizo){
-        return hechicero.energiaActual() >= hechizo.energiaRequerida()
-    }
-    method subirRango(hechiecero)
+    method cumpleRequerimiento(hechizo)
+    method subirRango(hechicero)
 }
 
 object aprendiz inherits Rango(energiaMaxima = 50){
     override method energiaMaxima() = energiaMaxima
-    override method puedeUsarHechizo(hechicero, hechizo){
-        return super(hechicero, hechizo) && hechizo.energiaRequerida() < 40
+    override method cumpleRequerimiento(hechizo){
+        return hechizo.energiaRequerida() < 40
     }
     override method subirRango(hechicero){
         hechicero.modificarRango(new Archimagos(nivel = 1))
@@ -36,8 +37,8 @@ object aprendiz inherits Rango(energiaMaxima = 50){
 class Archimagos inherits Rango(energiaMaxima = 100){
     var property nivel
     override method energiaMaxima() = energiaMaxima + 2 * self.nivel()
-    override method puedeUsarHechizo(hechicero, hechizo){
-        return super(hechicero, hechizo) && !hechizo.esProhibido()
+    override method cumpleRequerimiento(hechizo){
+        return !hechizo.esProhibido()
     }
     override method subirRango(hechicero){
         try {
@@ -51,17 +52,18 @@ class Archimagos inherits Rango(energiaMaxima = 100){
     }
 }
 
-class NivelNegativo inherits wollok.lang.Exception {}
-
 object supremo inherits Rango(energiaMaxima = 500){
     override method energiaMaxima() = energiaMaxima
-    override method puedeUsarHechizo(hechicero, hechizo) = true
-    override method subirRango(hechicero){// El rango supremo no tiene un rango superior.}
+    override method cumpleRequerimiento(hechizo) = true
+    override method subirRango(hechicero){
+        // no tiene efecto, entonces el conportamiento está vacío.
+    }
 }
 
 class Hechizo{
-    var property energia // integer
-    var property prohibido // boolean 
-    method energiaRequerida() = self.energia()
-    method esProhibido() = self.prohibido()
+    var property energia
+    var property prohibido
 }
+
+
+class NivelNegativo inherits wollok.lang.Exception {}

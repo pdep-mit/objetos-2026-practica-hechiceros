@@ -1,6 +1,4 @@
 class Hechicero{
-    const energiaMaxima
-    var property nivel
     var property energiaActual
 
     method energiaMaxima()
@@ -9,22 +7,23 @@ class Hechicero{
     }
 }
 
-class Aprendiz inherits Hechicero(energiaMaxima = 50, nivel = 0, energiaActual = energiaMaxima){
-    override method energiaMaxima() = energiaMaxima
+class Aprendiz inherits Hechicero(){
+    override method energiaMaxima() { return 50 }
     override method puedeUsarHechizo(hechizo){
         return super(hechizo) && hechizo.energiaRequerida() < 40
     }
 }
 
-class Archimagos inherits Hechicero(energiaMaxima = 100, nivel = 1, energiaActual = energiaMaxima){
-    override method energiaMaxima() = energiaMaxima + 2 * self.nivel()
+class Archimagos inherits Hechicero(){
+    var property nivel = 1
+    override method energiaMaxima() = 100 + 2 * self.nivel()
     override method puedeUsarHechizo(hechizo){
         return super(hechizo) && !hechizo.esProhibido()
     }
 }
 
-class Supremos inherits Hechicero(energiaMaxima = 500, nivel = 0, energiaActual = energiaMaxima){
-    override method energiaMaxima() = energiaMaxima
+class Supremos inherits Hechicero(){
+    override method energiaMaxima() = 500
     override method puedeUsarHechizo(hechizo) = true
 }
 

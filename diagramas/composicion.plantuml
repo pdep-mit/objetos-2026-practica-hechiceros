@@ -13,25 +13,25 @@ abstract Rango{
     - energiaMaxima: Integer
     - nivel: Integer
     + energiaMaxima(): Integer
-    + puedeUsarHechizo(hechiero: Hechicero, hechizo: Hechizo): Boolean
+    + cumpleRequerimiento(hechizo: Hechizo): Boolean
     + subirRango(hechicero: Hechicero): void
 }
 
 object aprendiz{
     + energiaMaxima(): Integer
-    + puedeUsarHechizo(hechiero: Hechicero, hechizo: Hechizo): Boolean
+    + cumpleRequerimiento(hechizo: Hechizo): Boolean
     + subirRango(hechicero: Hechicero): void
 }
 
 class Archimagos{
     + energiaMaxima(): Integer
-    + puedeUsarHechizo(hechiero: Hechicero, hechizo: Hechizo): Boolean
+    + cumpleRequerimiento(hechizo: Hechizo): Boolean
     + subirRango(hechicero: Hechicero): void
 }
 
 object supremo{
     + energiaMaxima(): Integer
-    + puedeUsarHechizo(hechiero: Hechicero, hechizo: Hechizo): Boolean
+    + cumpleRequerimiento(hechizo: Hechizo): Boolean
     + subirRango(hechicero: Hechicero): void
 }
 
@@ -42,7 +42,6 @@ class Hechizo{
     + esProhibido(): Boolean
 }
 Rango --> Hechizo
-Rango --> Hechicero
 Archimagos ---|> Rango 
 supremo ---|> Rango
 aprendiz ---|> Rango

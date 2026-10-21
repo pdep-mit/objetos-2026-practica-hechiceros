@@ -5,22 +5,22 @@ class Hechicero{
     - energiaActual: Integer
 
     + energiaMaxima(): Integer
-    + puedeUsarHechizo(hechizo): Boolean
+    + puedeUsarHechizo(hechizo: Hechizo): Boolean
 }
 
 class Aprendiz extends Hechicero{
   + energiaMaxima(): Integer
-  + puedeUsarHechizo(hechizo): Boolean
+  + puedeUsarHechizo(hechizo: Hechizo): Boolean
 }
 
 class Archimagos extends Hechicero{
   + energiaMaxima(): Integer
-  + puedeUsarHechizo(hechizo): Boolean
+  + puedeUsarHechizo(hechizo: Hechizo): Boolean
 }
 
 class Supremos extends Hechicero{
   + energiaMaxima(): Integer
-  + puedeUsarHechizo(hechizo): Boolean
+  + puedeUsarHechizo(hechizo: Hechizo): Boolean
 }
 
 class Hechizo{
@@ -30,5 +30,5 @@ class Hechizo{
     + esProhibido(): Boolean
 }
 
-Hechicero -> Hechizo
+Hechicero .> Hechizo
 @enduml
