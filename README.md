@@ -10,4 +10,4 @@
 
 ### Caso de composición
 
-<img width="1589" height="566" alt="digramaComposicion" src="https://github.com/user-attachments/assets/4bf85f62-1764-4c50-8cdf-0f1d031e3b65" />
+<img width="1589" height="566" alt="digramaComposicion" src="https://img.plantuml.biz/plantuml/png/pLJ1QiCm3Bq7yWy-PfJc0y8exM2moyOex0CKHsiqOZjJuZ2wxT_dn76Rj8EnKvkBYQIdzoHPZgDrqmAtLbLn54UoWgOH3oXBaiX6VCQHSDzIe4RU4MnaQw7An9DLEN9mCkYToSIsFxnj4G2Fy44AafivP25gYmM-DC03rzuafJypCHeSuiwO2a47I6Dpue6ZJzSPAe97Wie9-DvJ9jfY1-DFuFqTuRFryMOxgU4G_DttX7IB_0eIlJFqvCyIfLLrXLjyjyYa27NxpohBC8RiE96vD3-kJSse2zfVeJ9sJWMxoKNIr65rAkZoUat-Xh9r6DTBTOKp7dETBUH8NS3fJcBppAQad0fpnd-AFQzhWawc-WT5n-TXkLo5hJyQqtGLvFRHVcbklzBqS57dnd17PjPn47s2jSEuv-a7" />
