@@ -1,49 +1,54 @@
+
 @startuml
 
-class Hechicero{
-    - energiaActual: Integer
-    - rango: Integer
-    + energiaMaxima(): Integer
-    + puedeUsarHechizo(hechizo: Hechizo): Boolean
-    + subirRango(): void
-    + modificarRango(nuevoRango: Rango): void
+class Hechicero {
+    - energiaActual
+    - rango
+    + energiaMaxima()
+    + puedeUsarHechizo(hechizo)
+    + subirRango()
+    + cambiarEnergia(nuevaEnergia)
+    + cambiarRango(nuevoRango)
 }
 
-abstract Rango{
-    - energiaMaxima: Integer
-    - nivel: Integer
-    + energiaMaxima(): Integer
-    + cumpleRequerimiento(hechizo: Hechizo): Boolean
-    + subirRango(hechicero: Hechicero): void
+interface Rango {
+    + energiaMaxima()
+    + cumpleRequerimiento(hechizo)
+    + subirRango(hechicero)
 }
 
-object aprendiz{
-    + energiaMaxima(): Integer
-    + cumpleRequerimiento(hechizo: Hechizo): Boolean
-    + subirRango(hechicero: Hechicero): void
+class Aprendiz {
+    + energiaMaxima()
+    + cumpleRequerimiento(hechizo)
+    + subirRango(hechicero)
 }
 
-class Archimagos{
-    + energiaMaxima(): Integer
-    + cumpleRequerimiento(hechizo: Hechizo): Boolean
-    + subirRango(hechicero: Hechicero): void
+class Archimago {
+    - nivel
+    + energiaMaxima()
+    + cumpleRequerimiento(hechizo)
+    + subirRango(hechicero)
 }
 
-object supremo{
-    + energiaMaxima(): Integer
-    + cumpleRequerimiento(hechizo: Hechizo): Boolean
-    + subirRango(hechicero: Hechicero): void
+object supremo {
+    + energiaMaxima()
+    + cumpleRequerimiento(hechizo)
+    + subirRango(hechicero)
 }
 
-class Hechizo{
-    -energia: Integer
-    -prohibido: Boolean
-    + energiaRequerida(): Integer
-    + esProhibido(): Boolean
+class Hechizo {
+    - energiaRequerida
+    - esProhibido
+    + energiaRequerida()
+    + esProhibido()
 }
-Rango --> Hechizo
-Archimagos ---|> Rango 
-supremo ---|> Rango
-aprendiz ---|> Rango
+
+Hechicero --> Rango
+Hechicero ..> Hechizo 
+
+Rango <|.. Aprendiz
+Rango <|.. Archimago
+Rango <|.. supremo
+
 
 @enduml
